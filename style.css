@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  
+  --bg-body: hsla(0, 0%, 100%, 100%);
+
+  --tt-color: hsla(240, 6%, 21%, 100%);
+  --bt-color: hsla(240, 6%, 21%, 100%);
+  --bt-hover: rgb(140, 140, 146);
+
+  --card-svg: hsla(240, 6%, 21%, 100%);
+  --card-svg-active: hsla(0, 0%, 100%, 1);
+  --card-bg: hsla(240, 9%, 89%, 100%);
+  --card-bg-hover: rgb(190, 190, 194);
+  --card-bg-active: hsla(194, 97%, 31%, 100%);
+
+  --bg-input-range: hsla(240, 6%, 21%, 100%);
+  --bg-input-range-hover: hsla(0, 0%, 100%, 100%);
+}
+
+.dark-mode:root {
+  --bg-body: hsla(240, 5%, 7%, 1);
+
+  --tt-color: hsla(0, 0%, 100%, 1);
+  --bt-color: #C4C4CC;
+  --bt-hover: rgb(140, 140, 146);
+
+  --card-svg: hsla(240, 7%, 78%, 1);
+  --card-svg-active: hsla(0, 0%, 100%, 1);
+  --card-bg: hsla(240, 6%, 17%, 1);
+  --card-bg-hover: rgb(190, 190, 194);
+  --card-bg-active: hsla(195, 74%, 15%, 1);
+  
+  --bg-input-range: hsla(0, 0%, 100%, 100%);
+  --bg-input-range-hover: hsla(0, 0%, 100%, 100%);
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--tt-color);
+
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(3rem, 3rem + 10vw, 19.2rem);
+  margin: 4rem;
+}
+
+.time span {
+  font-size: clamp(10rem, 1rem + 10vw, 12.6rem);
+  line-height: 14.8rem;
+}
+
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+#controls button svg path {
+  transition: all 150ms ease-in-out;
+  fill: var(--bt-color);
+}
+
+#controls button:hover svg path {
+  fill: var(--bt-hover);
+}
+
+.sounds {
+  display: grid;
+  grid-template-areas: "Card1 Card2"
+    "Card3 Card4";
+  gap: 3.2rem;
+}
+
+.sounds button:nth-child(1) {
+  grid-area: Card1;
+}
+
+.sounds button:nth-child(2) {
+  grid-area: Card2;
+}
+
+.sounds button:nth-child(3) {
+  grid-area: Card3;
+}
+
+.sounds button:nth-child(4) {
+  grid-area: Card4;
+}
+
+.sounds button {
+  background-color: var(--card-bg);
+  border-radius: 2.4rem;
+
+  padding: 2.4rem;
+
+  width: 13.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sounds button:hover {
+  background-color: var(--card-bg-hover);
+}
+
+.sounds button.active-sound {
+  background-color: var(--card-bg-active);
+}
+
+.sounds button svg path {
+  fill: var(--card-svg);
+}
+
+.sounds button.active-sound svg path {
+  fill: var(--card-svg-active);
+}
+
+.sounds button input {
+  appearance: none;
+  height: 4px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: var(--bg-input-range);
+}
+
+.sounds button input::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-input-range);
+}
+
+.sounds button.active-sound input {
+  background-color: var(--bg-input-range-hover);
+}
+
+.sounds button.active-sound input::-webkit-slider-thumb {
+  background-color: var(--bg-input-range-hover);
+}
+
+#theme {
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+
+  #timer {
+    text-align: center;
+    width: 90%;
+  }
+
+  .sounds button {
+    padding: 2.1rem;
+  }
+
+  #theme {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+}
