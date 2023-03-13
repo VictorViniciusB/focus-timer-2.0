@@ -169,7 +169,7 @@ main {
   background-color: var(--bg-input-range-hover);
 }
 
-#theme {
+#themeButton {
   position: absolute;
   top: 6.4rem;
   right: 6.4rem;
@@ -189,7 +189,7 @@ main {
     padding: 2.1rem;
   }
 
-  #theme {
+  #themeButton {
     top: 1.2rem;
     right: 1.2rem;
   }
